@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>김이도 첫 생일</title>
 <meta name="description" content="2026년 11월 28일 토요일 오후 5시 · 더리스 2층">
-<!-- 카톡 미리보기: 아래 두 줄의 주소를 내 GitHub Pages 주소로 바꿔주세요 -->
-<meta property="og:url" content="https://아이디.github.io/저장소이름/">
-<meta property="og:image" content="https://아이디.github.io/저장소이름/og.jpg">
+<!-- 카톡 미리보기 -->
+<meta property="og:url" content="https://ido-birthday.github.io/">
+<meta property="og:image" content="https://ido-birthday.github.io/og.jpg?v=2">
 <meta property="og:type" content="website">
 <meta property="og:title" content="김이도의 첫 번째 생일에 초대합니다">
 <meta property="og:description" content="2026년 11월 28일 토요일 오후 5시 · 더리스 2층">
@@ -82,25 +82,7 @@ section{display:flex;flex-direction:column;gap:20px}
 .btns.three{grid-template-columns:repeat(3,minmax(0,1fr))}
 .btns > *:hover{background:var(--paper-2)}
 
-form{display:flex;flex-direction:column;gap:16px}
-.seg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border:1px solid var(--line)}
-.seg input{position:absolute;opacity:0;pointer-events:none}
-.seg label{min-height:48px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:14px;color:var(--ink-2)}
-.seg label + input + label{border-left:1px solid var(--line)}
-.seg input:checked + label{background:var(--ink);color:var(--paper);font-weight:500}
-.seg input:focus-visible + label{outline:2px solid var(--accent);outline-offset:-4px}
-.field{display:flex;flex-direction:column;gap:6px}
-.field > label{font-size:13px;font-weight:500;color:var(--ink)}
-.field input,.field select{min-height:48px;padding:0 14px;border:1px solid var(--line);border-radius:0;background:var(--paper);font:inherit;font-size:16px;color:var(--ink);appearance:none}
-.field select{background-image:linear-gradient(45deg,transparent 50%,var(--ink-2) 50%),linear-gradient(135deg,var(--ink-2) 50%,transparent 50%);background-position:calc(100% - 20px) 21px,calc(100% - 15px) 21px;background-size:5px 5px;background-repeat:no-repeat}
-.field input:focus,.field select:focus{outline:2px solid var(--accent);outline-offset:-1px}
-.primary{min-height:52px;border:0;background:var(--ink);color:var(--paper);font:inherit;font-size:15px;font-weight:400;letter-spacing:1px;cursor:pointer}
-.primary:focus-visible,.btns > *:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.err{margin:0;font-size:13px;color:var(--sun)}
-.result{display:flex;flex-direction:column;gap:10px;background:var(--paper-2);padding:18px 16px;text-align:center}
-.result .msg{font-family:var(--f-display);font-size:15px;user-select:all;-webkit-user-select:all;background:var(--paper);padding:12px;border:1px dashed var(--line);word-break:keep-all}
-.result p{margin:0;font-size:13px;color:var(--ink-2);word-break:keep-all}
-.hint{margin:0;font-size:13px;color:var(--ink-2);text-align:center;word-break:keep-all}
+.btns > *:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 
 .toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--paper);font-size:14px;padding:10px 18px;opacity:0;transition:opacity .2s;pointer-events:none}
 .toast.show{opacity:1}
@@ -165,34 +147,6 @@ footer small{font-size:12px;color:var(--ink-2)}
     <div class="notice">행사가 5시 정각에 시작되니<br><b>4시 50분까지</b> 도착해 주세요.</div>
   </section>
 
-  <div class="rule"></div>
-
-  <section class="pad" aria-labelledby="r-label">
-    <h2 class="label" id="r-label" style="margin:0">RSVP</h2>
-    <p class="hint">준비에 참고할 수 있도록<br>참석 여부를 알려주세요.</p>
-    <form id="rsvp" novalidate>
-      <div class="seg" role="radiogroup" aria-label="참석 여부">
-        <input type="radio" name="att" id="att-yes" value="yes" checked><label for="att-yes">참석할게요</label>
-        <input type="radio" name="att" id="att-no" value="no"><label for="att-no">참석이 어려워요</label>
-      </div>
-      <div class="field">
-        <label for="rsvp-name">성함</label>
-        <input id="rsvp-name" name="name" type="text" autocomplete="name" placeholder="성함을 입력해 주세요">
-      </div>
-      <div class="field" id="countField">
-        <label for="rsvp-count">참석 인원 (본인 포함)</label>
-        <select id="rsvp-count" name="count">
-          <option value="1">1명</option><option value="2" selected>2명</option><option value="3">3명</option><option value="4">4명</option><option value="5">5명</option><option value="6">6명</option><option value="7">7명 이상</option>
-        </select>
-      </div>
-      <p class="err" id="err" hidden>성함을 입력해 주세요.</p>
-      <button class="primary" type="submit">회신 메시지 만들기</button>
-    </form>
-    <div class="result" id="result" hidden>
-      <div class="msg" id="msg"></div>
-      <p id="resultNote">메시지가 복사되었어요. 초대장을 보내주신 분께<br>카카오톡으로 붙여넣어 보내주세요.</p>
-    </div>
-  </section>
 
   <div class="rule"></div>
 
@@ -263,28 +217,6 @@ footer small{font-size:12px;color:var(--ink-2)}
     copy(location.href,function(){say('링크를 복사했어요');},function(){say('주소창의 링크를 복사해 주세요');});
   });
 
-  var form=document.getElementById('rsvp'),countField=document.getElementById('countField');
-  form.addEventListener('change',function(e){
-    if(e.target.name==='att') countField.hidden=(form.att.value==='no');
-  });
-  form.addEventListener('submit',function(e){
-    e.preventDefault();
-    var nameEl=document.getElementById('rsvp-name'),name=nameEl.value.trim(),err=document.getElementById('err');
-    if(!name){err.hidden=false;nameEl.focus();return;}
-    err.hidden=true;
-    var cs=document.getElementById('rsvp-count'),c=cs.options[cs.selectedIndex].text;
-    var text=form.att.value==='yes'
-      ? '[이도 첫 생일 회신] '+name+' · '+c+' 참석합니다. 축하드려요!'
-      : '[이도 첫 생일 회신] '+name+' · 아쉽지만 참석이 어려워요. 이도의 첫 생일 축하드려요!';
-    var msg=document.getElementById('msg'),note=document.getElementById('resultNote');
-    msg.textContent=text;
-    document.getElementById('result').hidden=false;
-    copy(text,function(){
-      note.innerHTML='메시지가 복사되었어요. 초대장을 보내주신 분께<br>카카오톡으로 붙여넣어 보내주세요.';say('회신 메시지를 복사했어요');
-    },function(){
-      note.innerHTML='위 메시지를 길게 눌러 복사한 뒤<br>초대장을 보내주신 분께 카카오톡으로 보내주세요.';
-    });
-  });
 })();
 </script>
 </body>
